@@ -32,13 +32,13 @@ public class EditBookActivity extends AppCompatActivity {
         });
 
         ArrayList<EditText> texts = new ArrayList<>(Arrays.asList(new EditText[]{
-                findViewById(R.id.train_number_edit),
-                findViewById(R.id.end_point_edit),
-                findViewById(R.id.departure_time_edit),
-                findViewById(R.id.basic_edit),
-                findViewById(R.id.common_edit),
-                findViewById(R.id.coupe_edit),
-                findViewById(R.id.luxury_edit),
+                findViewById(R.id.book_id_edit),
+                findViewById(R.id.book_name_edit),
+                findViewById(R.id.author_edit),
+                findViewById(R.id.publisher_edit),
+                findViewById(R.id.pages_count_edit),
+                findViewById(R.id.year_pub_edit),
+                findViewById(R.id.price_edit),
         }));
         for (EditText text : texts) {
             text.setOnFocusChangeListener(((view, b) ->

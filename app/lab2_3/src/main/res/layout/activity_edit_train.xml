@@ -6,26 +6,27 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     tools:context=".EditBookActivity">
+
     <TextView
         android:id="@+id/book_id_caption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Номер поезда: "
+        android:text="ID книги"
         android:layout_margin="5dp"
         android:textColor="@color/black"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBaseline_toBaselineOf="@id/train_number_edit"
+        app:layout_constraintBaseline_toBaselineOf="@id/book_id_edit"
 
         />
 
     <EditText
-        android:id="@+id/train_number_edit"
+        android:id="@+id/book_id_edit"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:fontFamily="serif-monospace"
-        android:inputType="text"
+        android:inputType="number"
         android:minHeight="48dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -37,16 +38,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Пункт назанчения: "
+        android:text="Наименование: "
         android:textColor="@color/black"
         android:layout_margin="5dp"
-        app:layout_constraintTop_toBottomOf="@id/train_number_edit"
+        app:layout_constraintTop_toBottomOf="@id/book_id_edit"
         app:layout_constraintLeft_toLeftOf="parent"
 
         />
 
     <EditText
-        android:id="@+id/end_point_edit"
+        android:id="@+id/book_name_edit"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:fontFamily="serif-monospace"
@@ -61,121 +62,145 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Время отправления: "
+        android:text="Автор(ы): "
         android:textColor="@color/black"
         android:layout_margin="5dp"
-        app:layout_constraintTop_toBottomOf="@id/end_point_edit"
+        app:layout_constraintTop_toBottomOf="@id/book_name_edit"
         app:layout_constraintLeft_toLeftOf="parent"
 
         />
 
     <EditText
-        android:id="@+id/departure_time_edit"
+        android:id="@+id/author_edit"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:fontFamily="serif-monospace"
 
-        android:inputType="time"
+        android:inputType="text"
         android:minHeight="48dp"
         app:layout_constraintBaseline_toBaselineOf="@id/author_caption"
         app:layout_constraintRight_toRightOf="parent" />
 
     <TextView
-        android:id="@+id/basic_caption"
+        android:id="@+id/publisher_caption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Стандартные места: "
+        android:text="Издатель: "
         android:textColor="@color/black"
         android:layout_margin="5dp"
-        app:layout_constraintTop_toBottomOf="@id/departure_time_edit"
+        app:layout_constraintTop_toBottomOf="@id/author_edit"
         app:layout_constraintLeft_toLeftOf="parent"
 
         />
 
     <EditText
-        android:id="@+id/basic_edit"
-        android:layout_width="48dp"
+        android:id="@+id/publisher_edit"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:fontFamily="serif-monospace"
-        android:inputType="number"
+        android:inputType="text"
         android:minHeight="48dp"
-        app:layout_constraintBaseline_toBaselineOf="@id/basic_caption"
+        app:layout_constraintBaseline_toBaselineOf="@id/publisher_caption"
         app:layout_constraintRight_toRightOf="parent" />
 
     <TextView
-        android:id="@+id/coupe_caption"
+        android:id="@+id/year_pub_caption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Купе: "
+        android:text="Год издания: "
         android:textColor="@color/black"
         android:layout_margin="5dp"
-        app:layout_constraintTop_toBottomOf="@id/basic_edit"
+        app:layout_constraintTop_toBottomOf="@id/publisher_edit"
         app:layout_constraintLeft_toLeftOf="parent"
 
         />
 
     <EditText
-        android:id="@+id/coupe_edit"
+        android:id="@+id/year_pub_edit"
         android:layout_width="48dp"
         android:layout_height="wrap_content"
         android:fontFamily="serif-monospace"
         android:inputType="number"
         android:minHeight="48dp"
-        app:layout_constraintBaseline_toBaselineOf="@id/coupe_caption"
+        app:layout_constraintBaseline_toBaselineOf="@id/year_pub_caption"
         app:layout_constraintRight_toRightOf="parent" />
 
     <TextView
-        android:id="@+id/common_caption"
+        android:id="@+id/pages_count_caption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Плацкарт: "
+        android:text="Кол-во страниц: "
         android:textColor="@color/black"
         android:layout_margin="5dp"
-        app:layout_constraintTop_toBottomOf="@id/coupe_edit"
+        app:layout_constraintTop_toBottomOf="@id/year_pub_edit"
         app:layout_constraintLeft_toLeftOf="parent"
 
         />
 
     <EditText
-        android:id="@+id/common_edit"
+        android:id="@+id/pages_count_edit"
         android:layout_width="48dp"
         android:layout_height="wrap_content"
         android:fontFamily="serif-monospace"
         android:inputType="number"
         android:minHeight="48dp"
-        app:layout_constraintBaseline_toBaselineOf="@id/common_caption"
+        app:layout_constraintBaseline_toBaselineOf="@id/pages_count_caption"
         app:layout_constraintRight_toRightOf="parent" />
 
     <TextView
-        android:id="@+id/luxury_caption"
+        android:id="@+id/price_e_caption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Лухари места: "
+        android:text="Цена: "
         android:textColor="@color/black"
         android:layout_margin="5dp"
-        app:layout_constraintTop_toBottomOf="@id/common_edit"
+        app:layout_constraintTop_toBottomOf="@id/pages_count_edit"
         app:layout_constraintLeft_toLeftOf="parent"
 
         />
 
     <EditText
-        android:id="@+id/luxury_edit"
+        android:id="@+id/price_edit"
         android:layout_width="48dp"
         android:layout_height="wrap_content"
         android:fontFamily="serif-monospace"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:minHeight="48dp"
-        app:layout_constraintBaseline_toBaselineOf="@id/luxury_caption"
+        app:layout_constraintBaseline_toBaselineOf="@id/price_e_caption"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/luxury_caption" />
+        app:layout_constraintTop_toBottomOf="@id/price_e_caption" />
+
+    <TextView
+        android:id="@+id/bound_e_caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Тип переплёта: "
+        android:textColor="@color/black"
+        android:layout_margin="5dp"
+        app:layout_constraintTop_toBottomOf="@id/price_edit"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        />
+
+    <EditText
+        android:id="@+id/bound_edit"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif-monospace"
+        android:inputType="number"
+        android:minHeight="48dp"
+        app:layout_constraintBaseline_toBaselineOf="@id/bound_e_caption"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/price_edit" />
 
     <LinearLayout
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/luxury_edit"
+        app:layout_constraintTop_toBottomOf="@id/bound_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"

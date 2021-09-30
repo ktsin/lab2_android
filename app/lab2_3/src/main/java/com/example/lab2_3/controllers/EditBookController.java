@@ -46,69 +46,6 @@ public class EditBookController {
     public void onEditLostFocus(@NonNull EditText view) {
         int id = view.getId();
         switch (id) {
-            case R.id.train_number_edit:
-                book.setTrainNumber(view.getText().toString());
-                break;
-            case R.id.end_point_edit: {
-                try {
-                    OffsetTime time = OffsetTime.parse(view.getText()+"+03:00");
-                    book.setDepartureTime(time);
-                } catch (Exception exception) {
-                    Toast
-                            .makeText(context, "Error in parsing. Format ##:##+####", Toast.LENGTH_LONG)
-                            .show();
-                }
-            }
-            break;
-            case R.id.basic_edit:
-                try {
-                    book.getSeats().stream()
-                            .filter((seat -> seat.getSeatType() == SeatType.COMMON_TYPE))
-                            .findFirst()
-                            .get().setCount(Integer.parseInt(view.getText().toString()));
-                } catch (Exception ex) {
-                    Toast
-                            .makeText(context, ex.getMessage(), Toast.LENGTH_LONG)
-                            .show();
-                }
-                break;
-            case R.id.common_edit:
-                try {
-                    book.getSeats().stream()
-                            .filter((seat -> seat.getSeatType() == SeatType.RESERVED_SEATS))
-                            .findFirst()
-                            .get().setCount(Integer.parseInt(view.getText().toString()));
-                } catch (Exception ex) {
-                    Toast
-                            .makeText(context, ex.getMessage(), Toast.LENGTH_LONG)
-                            .show();
-                }
-                break;
-            case R.id.coupe_edit:
-
-                try {
-                    book.getSeats().stream()
-                            .filter((seat -> seat.getSeatType() == SeatType.COUPE))
-                            .findFirst()
-                            .get().setCount(Integer.parseInt(view.getText().toString()));
-                } catch (Exception ex) {
-                    Toast
-                            .makeText(context, ex.getMessage(), Toast.LENGTH_LONG)
-                            .show();
-                }
-                break;
-            case R.id.luxury_edit:
-                try {
-                    book.getSeats().stream()
-                            .filter((seat -> seat.getSeatType() == SeatType.LUXURY))
-                            .findFirst()
-                            .get().setCount(Integer.parseInt(view.getText().toString()));
-                } catch (Exception ex) {
-                    Toast
-                            .makeText(context, ex.getMessage(), Toast.LENGTH_LONG)
-                            .show();
-                }
-                break;
             default:
                 break;
         }

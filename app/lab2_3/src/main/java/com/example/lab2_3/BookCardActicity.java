@@ -35,7 +35,7 @@ public class BookCardActicity extends AppCompatActivity {
         line = findViewById(R.id.year);
         line.setText(book.getPublishYear());
         line = findViewById(R.id.pages);
-        line.setText(book.getPages());
+        line.setText(String.format("%d", book.getPages()));
         line = findViewById(R.id.price);
         line.setText(String.format("%d.%2d",
                 book.getPrice() / 100,

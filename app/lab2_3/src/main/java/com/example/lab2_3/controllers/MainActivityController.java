@@ -14,7 +14,7 @@ import com.example.lab2_3.models.BookStore;
 public class MainActivityController {
     private final BookStore store;
     private final BookAdapter adapter;
-    private Context context;
+    private final Context context;
 
     public MainActivityController(Context context){
         store = new BookStore();

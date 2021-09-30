@@ -16,9 +16,6 @@
             android:name=".SearchActivity"
             android:exported="true" />
         <activity
-            android:name=".TaskActivity"
-            android:exported="true" />
-        <activity
             android:name=".EditBookActivity"
             android:exported="true" />
         <activity
