@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    tools:context=".TrainCardActicity">
+
+    <TextView
+        android:id="@+id/train_number_caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Номер поезда: "
+        android:layout_margin="5dp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+         />
+
+    <TextView
+        android:id="@+id/train_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBaseline_toBaselineOf="@id/train_number_caption"
+        app:layout_constraintLeft_toRightOf="@id/train_number_caption"
+        android:fontFamily="serif-monospace"
+
+        android:text="Lorem ipsum"
+        />
+
+    <TextView
+        android:id="@+id/end_point_caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Пункт назанчения: "
+        android:textColor="@color/black"
+        android:layout_margin="5dp"
+        app:layout_constraintTop_toBottomOf="@id/train_number_caption"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        />
+
+    <TextView
+        android:id="@+id/end_point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBaseline_toBaselineOf="@id/end_point_caption"
+        app:layout_constraintLeft_toRightOf="@id/end_point_caption"
+        android:fontFamily="serif-monospace"
+        android:text="Lorem ipsum"
+        />
+
+    <TextView
+        android:id="@+id/departure_time_caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Время отправления: "
+        android:textColor="@color/black"
+        android:layout_margin="5dp"
+        app:layout_constraintTop_toBottomOf="@id/end_point_caption"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        />
+
+    <TextView
+        android:id="@+id/departure_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBaseline_toBaselineOf="@id/departure_time_caption"
+        app:layout_constraintLeft_toRightOf="@id/departure_time_caption"
+        android:fontFamily="serif-monospace"
+        android:text="Lorem ipsum"
+        />
+
+    <TextView
+        android:id="@+id/seats_caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Места: "
+        android:textColor="@color/black"
+        android:layout_margin="5dp"
+        app:layout_constraintTop_toBottomOf="@id/departure_time_caption"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        />
+
+    <TextView
+        android:id="@+id/seats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBaseline_toBaselineOf="@id/seats_caption"
+        app:layout_constraintLeft_toRightOf="@id/seats_caption"
+        android:fontFamily="serif-monospace"
+        android:text="Lorem ipsum"
+        />
+    <LinearLayout
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/seats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:id="@+id/delete_button"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="Удалить"
+            android:layout_margin="5dp"
+            />
+        <Button
+            android:id="@+id/edit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="Редактировать"
+            android:layout_margin="5dp"
+            />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
