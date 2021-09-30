@@ -6,20 +6,20 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.lab2_3.controllers.EditTrainController;
+import com.example.lab2_3.controllers.EditBookController;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class EditTrainActivity extends AppCompatActivity {
-    private EditTrainController controller;
+public class EditBookActivity extends AppCompatActivity {
+    private EditBookController controller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_train);
         boolean isEditMode = getIntent().getBooleanExtra("isEditingMode", false);
-        controller = new EditTrainController(this, isEditMode);
+        controller = new EditBookController(this, isEditMode);
 
         Button btn = findViewById(R.id.save_button);
         btn.setOnClickListener((view -> {

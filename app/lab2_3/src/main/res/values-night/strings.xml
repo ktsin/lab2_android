@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="caption_main">Список книг:</string>
+    <string name="search_button_label">Поиск</string>
+    <string name="add_button_label">Добавить книгу</string>
+</resources>

@@ -9,30 +9,27 @@ import androidx.annotation.NonNull;
 
 import com.example.lab2_3.MainActivity;
 import com.example.lab2_3.R;
-import com.example.lab2_3.models.Seat;
-import com.example.lab2_3.models.SeatType;
-import com.example.lab2_3.models.Train;
-import com.example.lab2_3.models.TrainStore;
+import com.example.lab2_3.models.Book;
+import com.example.lab2_3.models.BookStore;
 
 import java.time.OffsetTime;
-import java.util.ArrayList;
 
-public class EditTrainController {
-    private final TrainStore store;
+public class EditBookController {
+    private final BookStore store;
     private final Context context;
-    private Train train;
+    private Book book;
     private boolean isEditMode;
 
-    public EditTrainController(Context context, boolean isEditMode) {
+    public EditBookController(Context context, boolean isEditMode) {
         this.isEditMode = isEditMode;
-        this.store = new TrainStore();
+        this.store = new BookStore();
         this.context = context;
         if (!isEditMode) {
-            train = new Train("", "", OffsetTime.MIN, new ArrayList<>());
-            train.getSeats().add(new Seat(SeatType.COMMON_TYPE, 0));
-            train.getSeats().add(new Seat(SeatType.RESERVED_SEATS, 0));
-            train.getSeats().add(new Seat(SeatType.COUPE, 0));
-            train.getSeats().add(new Seat(SeatType.LUXURY, 0));
+//            train = new Train("", "", OffsetTime.MIN, new ArrayList<>());
+//            train.getSeats().add(new Seat(SeatType.COMMON_TYPE, 0));
+//            train.getSeats().add(new Seat(SeatType.RESERVED_SEATS, 0));
+//            train.getSeats().add(new Seat(SeatType.COUPE, 0));
+//            train.getSeats().add(new Seat(SeatType.LUXURY, 0));
         }
     }
 
@@ -50,12 +47,12 @@ public class EditTrainController {
         int id = view.getId();
         switch (id) {
             case R.id.train_number_edit:
-                train.setTrainNumber(view.getText().toString());
+                book.setTrainNumber(view.getText().toString());
                 break;
             case R.id.end_point_edit: {
                 try {
                     OffsetTime time = OffsetTime.parse(view.getText()+"+03:00");
-                    train.setDepartureTime(time);
+                    book.setDepartureTime(time);
                 } catch (Exception exception) {
                     Toast
                             .makeText(context, "Error in parsing. Format ##:##+####", Toast.LENGTH_LONG)
@@ -65,7 +62,7 @@ public class EditTrainController {
             break;
             case R.id.basic_edit:
                 try {
-                    train.getSeats().stream()
+                    book.getSeats().stream()
                             .filter((seat -> seat.getSeatType() == SeatType.COMMON_TYPE))
                             .findFirst()
                             .get().setCount(Integer.parseInt(view.getText().toString()));
@@ -77,7 +74,7 @@ public class EditTrainController {
                 break;
             case R.id.common_edit:
                 try {
-                    train.getSeats().stream()
+                    book.getSeats().stream()
                             .filter((seat -> seat.getSeatType() == SeatType.RESERVED_SEATS))
                             .findFirst()
                             .get().setCount(Integer.parseInt(view.getText().toString()));
@@ -90,7 +87,7 @@ public class EditTrainController {
             case R.id.coupe_edit:
 
                 try {
-                    train.getSeats().stream()
+                    book.getSeats().stream()
                             .filter((seat -> seat.getSeatType() == SeatType.COUPE))
                             .findFirst()
                             .get().setCount(Integer.parseInt(view.getText().toString()));
@@ -102,7 +99,7 @@ public class EditTrainController {
                 break;
             case R.id.luxury_edit:
                 try {
-                    train.getSeats().stream()
+                    book.getSeats().stream()
                             .filter((seat -> seat.getSeatType() == SeatType.LUXURY))
                             .findFirst()
                             .get().setCount(Integer.parseInt(view.getText().toString()));

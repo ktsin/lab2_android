@@ -1,5 +1,8 @@
 <resources>
-    <string name="app_name">Расписание поездов</string>
+    <string name="app_name">Книги</string>
+    <string name="caption_main">Список книг:</string>
+    <string name="search_button_label">Поиск</string>
+    <string name="add_button_label">Добавить книгу</string>
     <string-array name="hours">
         <item>00:00+03:00</item>
         <item>01:00+03:00</item>

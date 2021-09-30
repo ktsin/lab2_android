@@ -4,21 +4,21 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 
-import com.example.lab2_3.EditTrainActivity;
+import com.example.lab2_3.EditBookActivity;
 import com.example.lab2_3.R;
 import com.example.lab2_3.SearchActivity;
-import com.example.lab2_3.TrainCardActicity;
-import com.example.lab2_3.models.TrainAdapter;
-import com.example.lab2_3.models.TrainStore;
+import com.example.lab2_3.BookCardActicity;
+import com.example.lab2_3.models.BookAdapter;
+import com.example.lab2_3.models.BookStore;
 
 public class MainActivityController {
-    private final TrainStore store;
-    private final TrainAdapter adapter;
+    private final BookStore store;
+    private final BookAdapter adapter;
     private Context context;
 
     public MainActivityController(Context context){
-        store = new TrainStore();
-        adapter = new TrainAdapter(context, R.layout.main_list_item, store.getTrains());
+        store = new BookStore();
+        adapter = new BookAdapter(context, R.layout.main_list_item, store.getBooks());
         this.context = context;
     }
 
@@ -30,13 +30,13 @@ public class MainActivityController {
     }
 
     public void addClick(View view){
-        Intent intent = new Intent(context, EditTrainActivity.class);
+        Intent intent = new Intent(context, EditBookActivity.class);
         intent.putExtra("isEditingMode", false);
         context.startActivity(intent);
     }
 
     public void onItemClicked(int position){
-        Intent intent = new Intent(context, TrainCardActicity.class);
+        Intent intent = new Intent(context, BookCardActicity.class);
         intent.putExtra("ItemValuePosition", position);
         intent.putExtra("ItemValue", store.get(position));
         context.startActivity(intent);
@@ -44,7 +44,7 @@ public class MainActivityController {
     }
 
 
-    public TrainAdapter getAdapter() {
+    public BookAdapter getAdapter() {
         return adapter;
     }
 }
