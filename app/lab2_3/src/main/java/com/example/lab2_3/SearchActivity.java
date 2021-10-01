@@ -1,6 +1,7 @@
 package com.example.lab2_3;
 
 import android.os.Bundle;
+import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatSpinner;
@@ -31,5 +32,6 @@ public class SearchActivity extends AppCompatActivity {
 
         findViewById(R.id.search_button).setOnClickListener(view->controller.searchClick());
 
+        ((ListView)findViewById(R.id.search_result)).setAdapter(controller.getBooks());
     }
 }
