@@ -12,8 +12,6 @@ import com.example.lab2_3.R;
 import com.example.lab2_3.models.Book;
 import com.example.lab2_3.models.BookStore;
 
-import java.time.OffsetTime;
-
 public class EditBookController {
     private final BookStore store;
     private final Context context;
@@ -24,17 +22,17 @@ public class EditBookController {
         this.isEditMode = isEditMode;
         this.store = new BookStore();
         this.context = context;
+
         if (!isEditMode) {
-//            train = new Train("", "", OffsetTime.MIN, new ArrayList<>());
-//            train.getSeats().add(new Seat(SeatType.COMMON_TYPE, 0));
-//            train.getSeats().add(new Seat(SeatType.RESERVED_SEATS, 0));
-//            train.getSeats().add(new Seat(SeatType.COUPE, 0));
-//            train.getSeats().add(new Seat(SeatType.LUXURY, 0));
+
         }
     }
 
     public void onSubmit() {
-
+        if(isEditMode)
+            store.replace(0, book);
+        else
+            store.add(book);
     }
 
     public void onCancel() {
@@ -43,11 +41,41 @@ public class EditBookController {
         context.startActivity(intent);
     }
 
+
     public void onEditLostFocus(@NonNull EditText view) {
         int id = view.getId();
-        switch (id) {
-            default:
-                break;
+        try {
+            switch (id) {
+                case R.id.book_id_edit:
+                    book.setId(view.getText().toString());
+                    break;
+                case R.id.author_edit:
+                    book.setAuthor(view.getText().toString());
+                    break;
+                case R.id.publisher_edit:
+                    book.setPublisher(view.getText().toString());
+                    break;
+                case R.id.book_name_edit:
+                    book.setName(view.getText().toString());
+                    break;
+                case R.id.pages_count_edit:
+                    book.setPages(Integer.parseInt(view.getText().toString()));
+                    break;
+                case R.id.year_pub_edit:
+                    book.setPublishYear(view.getText().toString());
+                    break;
+                case R.id.price_edit:
+                    book.setPrice(Math.round(Float.parseFloat(view.getText().toString().replace(',', '.')) * 100));
+                    break;
+                case R.id.bound_edit:
+                    book.setBoundType(view.getText().toString());
+                    break;
+                default:
+                    break;
+            }
+        }
+        catch (Exception ex){
+            Toast.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
         }
     }
 }

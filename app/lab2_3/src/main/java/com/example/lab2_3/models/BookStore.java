@@ -31,4 +31,13 @@ public class BookStore {
     public void remove(int position){
         books.remove(position);
     }
+
+    public void add(Book book){
+        books.add(book);
+    }
+
+    public void replace(int position, Book book){
+        books.remove(position);
+        books.add(book);
+    }
 }

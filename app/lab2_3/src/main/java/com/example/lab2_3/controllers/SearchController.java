@@ -1,11 +1,13 @@
 package com.example.lab2_3.controllers;
 
 import android.content.Context;
+import android.content.Intent;
 import android.widget.ArrayAdapter;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatSpinner;
 
+import com.example.lab2_3.BookCardActicity;
 import com.example.lab2_3.R;
 import com.example.lab2_3.models.Book;
 import com.example.lab2_3.models.BookAdapter;
@@ -75,6 +77,14 @@ public class SearchController {
         books.addAll(searchResult);
         books.notifyDataSetChanged();
 //        books.notifyAll();
+
+    }
+
+    public void onItemClicked(int position){
+        Intent intent = new Intent(context, BookCardActicity.class);
+        intent.putExtra("ItemValuePosition", position);
+        intent.putExtra("ItemValue", books.getItem(position));
+        context.startActivity(intent);
 
     }
 

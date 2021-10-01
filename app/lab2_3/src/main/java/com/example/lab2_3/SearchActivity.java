@@ -1,6 +1,8 @@
 package com.example.lab2_3;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,5 +35,11 @@ public class SearchActivity extends AppCompatActivity {
         findViewById(R.id.search_button).setOnClickListener(view->controller.searchClick());
 
         ((ListView)findViewById(R.id.search_result)).setAdapter(controller.getBooks());
+        ((ListView)findViewById(R.id.search_result)).setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                controller.onItemClicked(i);
+            }
+        });
     }
 }

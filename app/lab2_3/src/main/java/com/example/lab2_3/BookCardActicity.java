@@ -23,7 +23,8 @@ public class BookCardActicity extends AppCompatActivity {
         Intent intent = getIntent();
         int pos = intent.getIntExtra("ItemValuePosition", 0);
         BookStore store = new BookStore();
-        Book book = store.get(pos);
+        //Book book = store.get(pos);
+        Book book = intent.getParcelableExtra("ItemValue");
         TextView line = findViewById(R.id.book_id);
         line.setText(book.getId());
         line = findViewById(R.id.book_name);
