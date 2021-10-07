@@ -31,6 +31,7 @@ public class BookCardController {
     public void onEditClick(){
         Intent intent = new Intent(context, EditBookActivity.class);
         intent.putExtra("EditPosition", position);
+        intent.putExtra("isEditingMode", true);
         context.startActivity(intent);
 
 

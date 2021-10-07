@@ -20,9 +20,10 @@ public class EditBookActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit_train);
         boolean isEditMode = getIntent().getBooleanExtra("isEditingMode", false);
         controller = new EditBookController(this, isEditMode);
-
+        findViewById(R.id.save_button).setFocusable(true);
         Button btn = findViewById(R.id.save_button);
         btn.setOnClickListener((view -> {
+
             controller.onSubmit();
         }));
 
@@ -39,11 +40,13 @@ public class EditBookActivity extends AppCompatActivity {
                 findViewById(R.id.pages_count_edit),
                 findViewById(R.id.year_pub_edit),
                 findViewById(R.id.price_edit),
+                findViewById(R.id.bound_edit_)
         }));
         for (EditText text : texts) {
-            text.setOnFocusChangeListener(((view, b) ->
+            text.setOnFocusChangeListener(((view, setFocus) ->
             {
-                controller.onEditLostFocus((EditText) view);
+                if(!setFocus)
+                    controller.onEditLostFocus((EditText) view);
             }));
         }
     }

@@ -1,11 +1,13 @@
 package com.example.lab2_3.controllers;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.lab2_3.MainActivity;
 import com.example.lab2_3.R;
@@ -15,24 +17,45 @@ import com.example.lab2_3.models.BookStore;
 public class EditBookController {
     private final BookStore store;
     private final Context context;
-    private Book book;
-    private boolean isEditMode;
+    private final AppCompatActivity activity;
+    private final Book book;
+    private final boolean isEditMode;
+    private int position = 0;
 
-    public EditBookController(Context context, boolean isEditMode) {
+    @SuppressLint("DefaultLocale")
+    public EditBookController(AppCompatActivity context, boolean isEditMode) {
         this.isEditMode = isEditMode;
         this.store = new BookStore();
         this.context = context;
-
-        if (!isEditMode) {
-
+        this.activity = context;
+        if (isEditMode) {
+            position = activity.getIntent().getIntExtra("EditPosition", 0);
+            book = store.get(position);
+            ((EditText) activity.findViewById(R.id.book_id_edit)).setText(book.getId());
+            ((EditText) activity.findViewById(R.id.author_edit)).setText(book.getAuthor());
+            ((EditText) activity.findViewById(R.id.bound_edit_)).setText(book.getBoundType());
+            ((EditText) activity.findViewById(R.id.price_edit)).setText(String.format("%d.%d", book.getPrice() / 100, book.getPrice() % 100));
+            ((EditText) activity.findViewById(R.id.pages_count_edit)).setText(String.format("%d", book.getPages()));
+            ((EditText) activity.findViewById(R.id.year_pub_edit)).setText(book.getPublishYear());
+            ((EditText) activity.findViewById(R.id.publisher_edit)).setText(book.getPublisher());
+            ((EditText) activity.findViewById(R.id.book_name_edit)).setText(book.getName());
         }
+        else
+            book = new Book("","","","","",0,0,"");
     }
 
     public void onSubmit() {
-        if(isEditMode)
-            store.replace(0, book);
-        else
+        if (isEditMode){
+            store.replace(position, book);
+            Toast.makeText(context, "Book edited", Toast.LENGTH_LONG).show();
+        }
+        else {
             store.add(book);
+            Toast.makeText(context, "Book added", Toast.LENGTH_LONG).show();
+        }
+        Intent intent = new Intent(context, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        context.startActivity(intent);
     }
 
     public void onCancel() {
@@ -67,14 +90,13 @@ public class EditBookController {
                 case R.id.price_edit:
                     book.setPrice(Math.round(Float.parseFloat(view.getText().toString().replace(',', '.')) * 100));
                     break;
-                case R.id.bound_edit:
+                case R.id.bound_edit_:
                     book.setBoundType(view.getText().toString());
                     break;
                 default:
                     break;
             }
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             Toast.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
         }
     }
